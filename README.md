@@ -61,7 +61,7 @@ Players are compared using **cosine similarity** on a normalised feature vector.
 
 ---
 
-## 📈 Market Index
+## Market Index
 
 A custom scoring formula that combines **age** and **performance** to surface undervalued players:
 
