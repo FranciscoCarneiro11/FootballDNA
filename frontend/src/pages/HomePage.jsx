@@ -73,8 +73,10 @@ function ScoreBar({ score, color = 'linear-gradient(90deg,#c9a84c,#e8d5a0)' }) {
 
 function HeroPlayerCard({ player }) {
   const [hovered, setHovered] = useState(false)
+  const navigate = useNavigate()
   return (
-    <div onMouseEnter={() => setHovered(true)} onMouseLeave={() => setHovered(false)} className="rounded-2xl p-5 flex flex-col gap-3 cursor-pointer"
+    <div onClick={() => navigate(`/player/${encodeURIComponent(player.name)}`)} onMouseEnter={() => setHovered(true)}
+      onMouseLeave={() => setHovered(false)} className="rounded-2xl p-5 flex flex-col gap-3 cursor-pointer"
       style={{
         background: hovered ? 'rgba(255,255,255,0.07)' : 'rgba(10,10,15,0.5)',
         border: hovered ? '1px solid rgba(255,255,255,0.2)' : '1px solid rgba(255,255,255,0.08)',
@@ -269,6 +271,7 @@ export default function HomePage() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
             {TOP_MARKET.slice(0, 3).map((p, i) => (
               <div key={i}
+                onClick={() => navigate(`/player/${encodeURIComponent(p.name)}`)}
                 className="rounded-2xl p-6 cursor-pointer transition-all hover:-translate-y-1"
                 style={{
                   background: i === 0 ? '#0a0a0f' : 'white',
@@ -294,6 +297,7 @@ export default function HomePage() {
           <div className="rounded-2xl overflow-hidden" style={{ background: 'white', border: '1px solid rgba(0,0,0,0.06)', boxShadow: '0 4px 24px rgba(0,0,0,0.06)' }}>
             {TOP_MARKET.slice(3).map((p, i) => (
               <div key={i}
+                onClick={() => navigate(`/player/${encodeURIComponent(p.name)}`)}
                 className="flex items-center gap-4 px-6 py-4 cursor-pointer transition-all hover:bg-gray-50"
                 style={{ borderBottom: i < TOP_MARKET.slice(3).length - 1 ? '1px solid rgba(0,0,0,0.05)' : 'none' }}>
                 <span className="text-xl font-black w-8 text-center" style={{ color: 'rgba(0,0,0,0.15)' }}>#{p.rank}</span>
@@ -319,7 +323,9 @@ export default function HomePage() {
           {TOP_BY_POS.map((p, i) => {
             const c = POS_COLORS[p.pos] || POS_COLORS.MF
             return (
-              <div key={i} className="rounded-2xl p-6 cursor-pointer transition-all hover:-translate-y-1"
+              <div key={i}
+                onClick={() => navigate(`/player/${encodeURIComponent(p.player)}`)}
+                className="rounded-2xl p-6 cursor-pointer transition-all hover:-translate-y-1"
                 style={{
                   background: 'rgba(255,255,255,0.03)',
                   border: `1px solid ${c.text}25`,
