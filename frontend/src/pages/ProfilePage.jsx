@@ -371,9 +371,6 @@ export default function ProfilePage() {
             <div>
               <h2 className="text-3xl font-black text-gray-900 mb-2">Detailed Statistics</h2>
               <p className="text-gray-500 text-sm">Full breakdown across all metrics — 2024/25 season</p>
-              <p className="text-gray-400 text-xs mt-2">
-                Metric abbreviations are shown in full next to each value.
-              </p>
             </div>
 
             <button
@@ -428,7 +425,6 @@ export default function ProfilePage() {
       {/* CTA */}
       <div className="py-20 px-8 text-center" style={{ background: '#0d1117' }}>
         <div className="max-w-xl mx-auto">
-          <p className="text-gray-500 text-sm uppercase tracking-widest mb-4">AI Engine</p>
           <h2 className="text-4xl font-black text-white mb-4">
             Find players similar to<br />
             <span style={{ color: '#c9a84c' }}>{player.name}</span>
